@@ -1,13 +1,18 @@
 const http = require('http');
 const PORT = 3000;
 
-const server = http.createServer((req, res) => {
+try{
+  const server = http.createServer((req, res) => {
   res.statusCode = 200;
   res.setHeader('Content-Type', 'text/plain');
   res.end('Hello World!');
   console.log(req)
 });
-
-server.listen(PORT, () => {
+  server.listen(PORT, () => {
   console.log(`Server running at http://localhost:${PORT}/`);
 });
+} catch(er) {
+  console.log(er)
+}
+
+
